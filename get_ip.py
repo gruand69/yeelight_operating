@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import (
     QDialog,
     QLineEdit)
 
+from lamps_operate import MyWindow
+
 
 class FileStat(QDialog):
     def __init__(self):
@@ -56,7 +58,11 @@ class FileStat(QDialog):
             QMessageBox.information(
                 self, 'Message', 'Вы ничего не ввели!')
             return
-        print(addresses)
+        # print(addresses)
+        window = MyWindow(addresses)
+        window.setWindowTitle("Управление лампами")
+        self.close()
+        window.exec_()
 
 
 if __name__ == '__main__':
